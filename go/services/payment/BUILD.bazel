@@ -1,0 +1,19 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_binary(
+    name = "api",
+    embed = [":go_default_library"],
+    visibility = ["//visibility:public"],
+)
+
+go_library(
+    name = "go_default_library",
+    srcs = ["main.go"],
+    importpath = "github.com/eggybytes/events/go/services/payment",
+    deps = [
+        "//go/commons/lifecycle:go_default_library",
+        "//go/services/payment/api/grpc:go_default_library",
+        "//go/services/payment/api/http:go_default_library",
+        "//go/services/payment/logic:go_default_library",
+    ],
+)
