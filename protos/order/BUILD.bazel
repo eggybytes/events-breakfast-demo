@@ -1,0 +1,35 @@
+load("@rules_proto//proto:defs.bzl", "proto_library")
+load("@io_bazel_rules_go//proto:def.bzl", "go_proto_library")
+
+proto_library(
+    name = "order_proto",
+    srcs = ["order.proto"],
+    visibility = ["//visibility:public"],
+    deps = [
+    ],
+)
+
+go_proto_library(
+    name = "order_proto_go_library",
+    compilers = [
+        "//protos:protoc-gen-go",
+    ],
+    importpath = "protos/order",
+    proto = ":order_proto",
+    visibility = ["//visibility:public"],
+    deps = [
+    ],
+)
+
+go_proto_library(
+    name = "order_grpc_go_library",
+    compilers = [
+        "//protos:protoc-gen-go",
+        "//protos:protoc-gen-grpc",
+    ],
+    importpath = "protos/order",
+    proto = ":order_proto",
+    visibility = ["//visibility:public"],
+    deps = [
+    ],
+)

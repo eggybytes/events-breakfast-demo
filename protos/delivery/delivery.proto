@@ -1,0 +1,23 @@
+syntax = "proto2";
+
+package delivery;
+
+option go_package = "protos/delivery";
+
+service DeliveryService {
+  rpc DeliverOrder (DeliverOrderRequest) returns (DeliverOrderResponse);
+}
+
+message DeliverOrderRequest {
+  optional int32 customer_id = 1;
+  optional int32 order_id = 2;
+}
+
+message DeliverOrderResponse {
+  enum Error {
+    UNKNOWN = 0;
+    OUT_OF_ITEMS = 1;
+    SERVER_UNRECOVERABLE = 2;
+  }
+  optional Error err = 2;
+}

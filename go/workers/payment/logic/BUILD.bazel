@@ -1,0 +1,13 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["logic.go"],
+    importpath = "github.com/eggybytes/events/go/workers/payment/logic",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//protos/order:order_proto_go_library",
+        "@com_github_segmentio_kafka_go//:go_default_library",
+        "@org_golang_google_protobuf//proto:go_default_library",
+    ],
+)

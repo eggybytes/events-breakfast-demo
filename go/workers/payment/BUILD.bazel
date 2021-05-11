@@ -1,0 +1,18 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_binary", "go_library")
+
+go_binary(
+    name = "worker",
+    embed = [":go_default_library"],
+    visibility = ["//visibility:public"],
+)
+
+go_library(
+    name = "go_default_library",
+    srcs = ["main.go"],
+    importpath = "github.com/eggybytes/events/go/workers/payment",
+    visibility = ["//go:__pkg__"],  # make this library available to our gopath generator
+    deps = [
+        "//go/commons/lifecycle:go_default_library",
+        "//go/workers/payment/logic:go_default_library",
+    ],
+)

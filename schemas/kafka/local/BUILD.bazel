@@ -1,0 +1,5 @@
+filegroup(
+    name = "topics",
+    srcs = glob(["*.sh"]),
+    visibility = ["//visibility:public"],
+)

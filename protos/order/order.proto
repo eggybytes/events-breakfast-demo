@@ -1,0 +1,35 @@
+syntax = "proto2";
+
+package order;
+
+option go_package = "protos/order";
+
+service OrderService {
+  rpc CreateOrder (CreateOrderRequest) returns (CreateOrderResponse);
+}
+
+message CreateOrderRequest {
+  optional int32 customer_id = 1;
+  repeated int32 item_ids = 2;
+}
+
+message CreateOrderResponse {
+  enum Error {
+    UNKNOWN = 0;
+    OUT_OF_ITEMS = 1;
+    SERVER_UNRECOVERABLE = 2;
+  }
+  optional Order order = 1;
+  optional Error err = 2;
+}
+
+message Order {
+  optional int32 id = 1;
+  optional int32 customer_id = 2;
+  repeated int32 item_ids = 3;
+}
+
+message Item {
+  optional int32 id = 1;
+  optional string name = 2;
+}
