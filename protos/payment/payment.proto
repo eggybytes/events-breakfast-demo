@@ -1,0 +1,22 @@
+syntax = "proto2";
+
+package payment;
+
+option go_package = "protos/payment";
+
+service PaymentService {
+  rpc ProcessPayment(ProcessPaymentRequest) returns (ProcessPaymentResponse);
+}
+
+message ProcessPaymentRequest {
+  optional int32 customer_id = 1;
+  optional int32 order_id = 2;
+}
+
+message ProcessPaymentResponse {
+  enum Error {
+    UNKNOWN = 0;
+    SERVER_UNRECOVERABLE = 1;
+  }
+  optional Error err = 2;
+}
