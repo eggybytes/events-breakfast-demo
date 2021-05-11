@@ -14,7 +14,6 @@ const useStyles = makeStyles<Theme>((theme) => ({
     color: colors.error[700],
     fontSize: typography.fontSizes[2],
     fontWeight: 500,
-    lineHeight: typography.lineHeights[2],
     marginTop: sizes[7],
     marginBottom: sizes[3],
     paddingTop: sizes[3],

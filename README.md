@@ -77,11 +77,11 @@ bazel run //go/services/order-sync:api
 ```
 
 ```shell
-bazel run //go/services/delivery:api
+bazel run //go/services/payment:api
 ```
 
 ```shell
-bazel run //go/services/payment:api
+bazel run //go/services/delivery:api
 ```
 
 ### Run the asynchronous version of the microservices
@@ -91,11 +91,11 @@ bazel run //go/services/order-async:api
 ```
 
 ```shell
-bazel run //go/workers/delivery:worker
+bazel run //go/workers/payment:worker
 ```
 
 ```shell
-bazel run //go/workers/payment:worker
+bazel run //go/workers/delivery:worker
 ```
 
 ### Build the webapp
