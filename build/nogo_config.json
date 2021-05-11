@@ -1,0 +1,32 @@
+{
+  "shadow": {
+    "only_files": {
+      "commons/.*": "",
+      "services/.*": "",
+      "workers/.*": ""
+    },
+    "exclude_files": {
+      "external/.*": ""
+    }
+  },
+  "unsafeptr": {
+    "only_files": {
+      "commons/.*": "",
+      "services/.*": "",
+      "workers/.*": ""
+    },
+    "exclude_files": {
+      "external/.*": ""
+    }
+  },
+  "unreachable": {
+    "only_files": {
+      "commons/.*": "",
+      "services/.*": "",
+      "workers/.*": ""
+    },
+    "exclude_files": {
+      "external/.*": ""
+    }
+  }
+}

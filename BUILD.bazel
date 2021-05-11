@@ -1,0 +1,25 @@
+# gazelle:ignore
+load("@bazel_gazelle//:def.bzl", "gazelle")
+load("@io_bazel_rules_go//go:def.bzl", "nogo")
+
+gazelle(
+    name = "gazelle",
+    prefix = "github.com/eggybytes/events",
+)
+
+# Set naming convention to be go_default_library for libraries, go_default_test for tests
+# gazelle:go_naming_convention go_default_library
+
+# The full list of available analysis passes is available by running
+# bazel query 'kind(go_tool_library, @org_golang_x_tools//go/analysis/passes/...)'
+nogo(
+    name = "go_nogo",
+    config = "//build:nogo_config.json",
+    vet = True,
+    visibility = ["//visibility:public"],
+    deps = [
+        "@org_golang_x_tools//go/analysis/passes/shadow:go_tool_library",
+        "@org_golang_x_tools//go/analysis/passes/unreachable:go_tool_library",
+        "@org_golang_x_tools//go/analysis/passes/unsafeptr:go_tool_library",
+    ],
+)

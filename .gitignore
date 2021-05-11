@@ -1,0 +1,12 @@
+# Macs
+.DS_Store
+
+# Bazel stuff
+bazel-*
+
+# JS dependencies
+node_modules/
+.eslintcache
+
+# JS built artifacts
+dist/
