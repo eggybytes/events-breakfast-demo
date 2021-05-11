@@ -1,0 +1,15 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = ["grpc.go"],
+    importpath = "github.com/eggybytes/events/go/services/payment/api/grpc",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//go/commons/grpc:go_default_library",
+        "//go/commons/serviceregistry:go_default_library",
+        "//go/services/payment/logic:go_default_library",
+        "//protos/payment:payment_grpc_go_library",
+        "@org_golang_google_grpc//:go_default_library",
+    ],
+)
