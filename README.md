@@ -2,7 +2,7 @@
 
 An example of two microservice architectures: a synchronous, coupled request/response approach and an asynchronous, less-coupled event-driven approach.
 
-See [the corresponding blog post/talk](https://eggybits.com/events-first) for more detail on why/how this exists.
+See [the corresponding blog post/talk](https://eggybits.com/posts/events-first) for more detail on why/how this exists.
 
 - [Tools needed](#tools-needed) to run this whole thing
   - [Bazelisk](#bazelisk) for the Go backend
