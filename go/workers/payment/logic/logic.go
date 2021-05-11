@@ -62,7 +62,6 @@ func (l *Logic) Run() error {
 		ctx := context.Background()
 		m, err := l.kafkaReader.ReadMessage(ctx)
 		if err != nil {
-			log.Println("[payment-worker] error reading message", err)
 			break
 		}
 
@@ -76,7 +75,6 @@ func (l *Logic) Stop() error {
 	err := l.kafkaReader.Close()
 
 	if err != nil {
-		log.Println("[payment-worker] failed to close Kafka reader", err)
 		return err
 	}
 
