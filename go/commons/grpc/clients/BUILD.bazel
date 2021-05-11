@@ -1,0 +1,17 @@
+load("@io_bazel_rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "go_default_library",
+    srcs = [
+        "clients.go",
+    ],
+    importpath = "github.com/eggybytes/events/go/commons/grpc/clients",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//go/commons/serviceregistry:go_default_library",
+        "//protos/delivery:delivery_grpc_go_library",
+        "//protos/order:order_grpc_go_library",
+        "//protos/payment:payment_grpc_go_library",
+        "@org_golang_google_grpc//:go_default_library",
+    ],
+)
