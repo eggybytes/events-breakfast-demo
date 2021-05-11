@@ -1,0 +1,11 @@
+{
+  "name": "breakfast-webapp",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node ./dist/server.js",
+    "build": "npx webpack-cli --config webpack.config.js",
+    "clean": "rm -rf dist/**",
+    "test": "echo \"Error: No tests yet.\""
+  }
+}
