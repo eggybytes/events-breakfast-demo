@@ -1,4 +1,4 @@
-# eggybytes/events
+# 🥞 eggybytes/events-breakfast-demo 🥞
 
 An example of two microservice architectures: a synchronous, coupled request/response approach and an asynchronous, less-coupled event-driven approach.
 
@@ -81,7 +81,7 @@ bazel run //go/services/delivery:api
 ```
 
 ```shell
-bazel run //go/services/inform:api
+bazel run //go/services/payment:api
 ```
 
 ### Run the asynchronous version of the microservices
@@ -95,7 +95,7 @@ bazel run //go/workers/delivery:worker
 ```
 
 ```shell
-bazel run //go/workers/inform:worker
+bazel run //go/workers/payment:worker
 ```
 
 ### Build the webapp
@@ -112,7 +112,7 @@ To actually serve the `breakfast-webapp` app (won't work unless you build first)
 yarn start
 ```
 
-# Clean up and destroy everything
+## Clean up and destroy everything
 
 ```shell
 minikube delete
