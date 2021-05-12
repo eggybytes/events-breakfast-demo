@@ -66,8 +66,18 @@ Install [Yarn](https://yarnpkg.com/en/) and [Node](https://nodejs.org/en/) if yo
 
 ### Deploy Kafka to minikube
 
+This deploys a clean version (nothing specific to this demo) of Kafka and Zookeeper to Kubernetes.
+
 ```shell
 kubectl apply -f deployments/kafka.yaml
+```
+
+### Create our Kafka topic
+
+```shell
+kubectl exec -it kafka-0 -- bash
+# from kafka/local/topics.sh
+/opt/kafka/bin/kafka-topics.sh --create --partitions 2 --replication-factor 1 --zookeeper zookeeper:2181 --topic order.order
 ```
 
 ### Run the synchronous version of the microservices
