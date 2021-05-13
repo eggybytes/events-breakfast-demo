@@ -154,7 +154,7 @@ spec:
       terminationGracePeriodSeconds: 10
       initContainers:
       - name: init-config
-        image: eggybytes/go:k8sutils-1.15.5
+        image: eggybytes/kafka:k8sutils-1.15.5
         command: ['/bin/bash', '/etc/kafka-configmap/init.sh']
         volumeMounts:
         - name: configmap
@@ -165,7 +165,7 @@ spec:
           mountPath: /var/lib/zookeeper
       containers:
       - name: zookeeper
-        image: eggybytes/go:kafka-2.4.1
+        image: eggybytes/kafka:kafka-2.4.1
         env:
         - name: KAFKA_LOG4J_OPTS
           value: -Dlog4j.configuration=file:/etc/kafka/log4j.properties
@@ -446,7 +446,7 @@ spec:
       terminationGracePeriodSeconds: 30
       initContainers:
       - name: init-config
-        image: eggybytes/go:k8sutils-1.15.5
+        image: eggybytes/kafka:k8sutils-1.15.5
         env:
         - name: NODE_NAME
           valueFrom:
@@ -470,7 +470,7 @@ spec:
           mountPath: /opt/kafka/libs/extensions
       containers:
       - name: broker
-        image: eggybytes/go:kafka-2.4.1
+        image: eggybytes/kafka:kafka-2.4.1
         env:
         - name: CLASSPATH
           value: /opt/kafka/libs/extensions/*
