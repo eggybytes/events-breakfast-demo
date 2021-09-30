@@ -64,6 +64,11 @@ minikube stop
 
 Install [Yarn](https://yarnpkg.com/en/) and [Node](https://nodejs.org/en/) if you don't have them.
 
+Then install the dependencies for the frontend app:
+```shell
+# from the js/ directory
+yarn install
+```
 
 ## How to build and run
 
@@ -113,15 +118,17 @@ bazel run //go/workers/delivery:worker
 
 ### Build the webapp
 
-To build e.g. the `breakfast-webapp` app (and rebuild on every relevant file change):
+To build the `breakfast-webapp` app:
 ```shell
-yarn build --watch
+# from the js/ directory
+yarn build
 ```
 
 ### Serve the webapp
 
 To actually serve the `breakfast-webapp` app (won't work unless you build first):
 ```shell
+# from the js/ directory
 yarn start
 ```
 
