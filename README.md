@@ -4,7 +4,7 @@ An example of two microservice architectures: a synchronous, coupled request/res
 
 **For more:**
 - 📃 Read [the corresponding blog post/talk](https://eggybits.com/posts/events-first) for more detail on why/how this exists
-- 📺 Watch the [video walkthrough of this demo](https://youtu.be/ho9ECfQQA18?t=1585) to see how it works
+- 📺 Watch the [video walkthrough of this demo](https://youtu.be/ob6oDeYdXeA) to see how it works
 
 ### Contents
 - [Tools needed](#tools-needed) to run this whole thing
