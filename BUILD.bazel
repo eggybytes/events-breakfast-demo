@@ -11,15 +11,15 @@ gazelle(
 # gazelle:go_naming_convention go_default_library
 
 # The full list of available analysis passes is available by running
-# bazel query 'kind(go_tool_library, @org_golang_x_tools//go/analysis/passes/...)'
+# bazel query 'kind(go_default_library, @org_golang_x_tools//go/analysis/passes/...)'
 nogo(
     name = "go_nogo",
     config = "//build:nogo_config.json",
     vet = True,
     visibility = ["//visibility:public"],
     deps = [
-        "@org_golang_x_tools//go/analysis/passes/shadow:go_tool_library",
-        "@org_golang_x_tools//go/analysis/passes/unreachable:go_tool_library",
-        "@org_golang_x_tools//go/analysis/passes/unsafeptr:go_tool_library",
+        "@org_golang_x_tools//go/analysis/passes/shadow:go_default_library",
+        "@org_golang_x_tools//go/analysis/passes/unreachable:go_default_library",
+        "@org_golang_x_tools//go/analysis/passes/unsafeptr:go_default_library",
     ],
 )

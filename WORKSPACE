@@ -4,11 +4,11 @@ workspace(name = "com_github_eggybytes_events")
 load("@bazel_tools//tools/build_defs/repo:git.bzl", "new_git_repository")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
-BAZEL_SKYLIB_VERSION = "1.0.3"  # 2020-08-27
+BAZEL_SKYLIB_VERSION = "1.2.1"  # 2022-03-10
 
 http_archive(
     name = "bazel_skylib",
-    sha256 = "7ac0fa88c0c4ad6f5b9ffb5e09ef81e235492c873659e6bb99efb89d11246bcb",
+    sha256 = "710c2ca4b4d46250cdce2bf8f5aa76ea1f0cba514ab368f2988f70e864cfaf51",
     strip_prefix = "bazel-skylib-%s" % BAZEL_SKYLIB_VERSION,
     urls = ["https://github.com/bazelbuild/bazel-skylib/archive/%s.tar.gz" % BAZEL_SKYLIB_VERSION],
 )
@@ -16,19 +16,16 @@ http_archive(
 load("@bazel_skylib//lib:versions.bzl", "versions")
 
 versions.check(
-    minimum_bazel_version = "4.0.0",  # 2021-01-21
-    maximum_bazel_version = "4.0.0",
+    minimum_bazel_version = "4.2.2",  # 2021-12-03
+    maximum_bazel_version = "4.2.2",
 )
 
-RULES_GO_VERSION = "v0.27.0"  # 2021-03-18
+RULES_GO_VERSION = "v0.31.0"  # 2022-03-21
 
 http_archive(
     name = "io_bazel_rules_go",
-    sha256 = "69de5c704a05ff37862f7e0f5534d4f479418afc21806c887db544a316f3cb6b",
-    urls = [
-        "https://mirror.bazel.build/github.com/bazelbuild/rules_go/releases/download/%s/rules_go-%s.tar.gz" % (RULES_GO_VERSION, RULES_GO_VERSION),
-        "https://github.com/bazelbuild/rules_go/releases/download/%s/rules_go-%s.tar.gz" % (RULES_GO_VERSION, RULES_GO_VERSION),
-    ],
+    sha256 = "f2dcd210c7095febe54b804bb1cd3a58fe8435a909db2ec04e31542631cf715c",
+    urls = ["https://github.com/bazelbuild/rules_go/releases/download/%s/rules_go-%s.zip" % (RULES_GO_VERSION, RULES_GO_VERSION)],
 )
 
 # Get Gazelle
@@ -68,7 +65,7 @@ load("@io_bazel_rules_go//go:deps.bzl", "go_register_toolchains", "go_rules_depe
 go_rules_dependencies()
 
 go_register_toolchains(
-    go_version = "1.16",
+    go_version = "1.18",
     nogo = "@//:go_nogo",
 )
 
